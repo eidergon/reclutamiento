@@ -39,3 +39,4 @@ $(window).click(function (event) {
         modal.hide();
     }
 });
+

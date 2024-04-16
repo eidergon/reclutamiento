@@ -83,6 +83,8 @@ if ($result->num_rows > 0) {
 <div id="myModal" class="modal">
     <div class="modal-content">
         <!-- Div para mostrar el QR -->
+        <button id="copiarButton">Copiar URL</button>
+        <button id="llenar">Formulario</button>
         <div id="qrContainer"></div>
     </div>
 </div>

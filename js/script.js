@@ -405,4 +405,48 @@ $(document).ready(function () {
             },
         });
     });
+
+    // Obtén el botón de copiar
+    var copiarButton = $("#copiarButton");
+
+    // Función para copiar la URL al portapapeles
+    function copiarURL() {
+        // Obtén la URL generada
+        var id = $("#id_recluta").val();
+        var url = "http://10.206.173.188/reclutamiento/view/formulario.php?id=" + id;
+
+        // Crea un elemento de texto temporal para copiar la URL al portapapeles
+        var tempInput = $("<input>");
+        $("body").append(tempInput);
+        tempInput.val(url).select();
+        document.execCommand("copy");
+        tempInput.remove();
+
+        // Informa al usuario que la URL se ha copiado
+        Swal.fire({
+            icon: "success",
+            title: "Copiado",
+            text: "URL copiada al portapapeles: " + url,
+        });
+    }
+
+    // Agrega un listener al botón de copiar para llamar a la función copiarURL cuando sea clickeado
+    copiarButton.click(copiarURL);
+
+    $("#llenar").on("click", function (e) {
+        e.preventDefault();
+        var id = $("#id_recluta").val();
+        var url = "formulario.php?id=" + id;
+
+        $.ajax({
+            url: url,
+            type: "GET",
+            success: function (response) {
+                $("#main").html(response);
+            },
+            error: function (error) {
+                console.log("Error al cargar el formulario:", error);
+            },
+        });
+    });
 });
