@@ -155,52 +155,72 @@ $conn->close();
     </label>
 
     <label>
-        9.¿Cuál es la fecha de expedición de su documento?
+        9.¿Cuál es el municipio de nacimiento?
+        <input class="select" name="municipio_nac" type="text" required>
+    </label>
+
+    <label>
+        10.¿Cuál es el departamento de nacimiento?
+        <input class="select" name="departamento_nac" type="text" required>
+    </label>
+
+    <label>
+        11.¿Cuál es la fecha de expedición de su documento?
         <input class="select" name="expedicion" type="date" required>
     </label>
 
     <label>
-        10.¿Cuál es la dirección de su residencia?
+        12.¿Cuál es el municipio de expedición de su documento?
+        <input class="select" name="municipio_exp" type="text" required>
+    </label>
+
+    <label>
+        13.¿Cuál es el departamento de expedición de su documento?
+        <input class="select" name="departamento_exp" type="text" required>
+    </label>
+
+    <label>
+        14.¿Cuál es la dirección de su residencia?
         <p class="title">ejemplo: CL 21 # 3 SUR - 21</p>
         <input class="select" name="direccion" placeholder="Direccion" autocomplete="off" type="text" required>
     </label>
 
     <label>
-        11.¿Cuál es su municipio de residencia?
+        15.¿Cuál es su municipio de residencia?
         <p class="title">ejemplo: MEDELLIN</p>
         <input class="select" name="municipio" placeholder="Municipio" autocomplete="off" type="text" required>
     </label>
 
     <label>
-        12.¿En qué barrio vives?
+        16.¿En qué barrio vives?
         <p class="title">ejemplo: CASTILLA</p>
         <input class="select" name="barrio" placeholder="Barrio" autocomplete="off" type="text" required>
     </label>
 
     <label>
-        13.¿Cuál es su número de contacto o celular?
+        17.¿Cuál es su número de contacto o celular?
         <p class="title">Ejemplo: "2276565" o "3009002020"</p>
         <input class="select" name="telefono" type="number" value="<?php echo $row['telefono']; ?>" readonly>
     </label>
 
     <label>
-        14.¿Cuál es su correo electrónico?
+        18.¿Cuál es su correo electrónico?
         <p class="title">ejemplo: JUAN@GMAIL.COM</p>
         <input class="select" placeholder="Correo" name="correo" autocomplete="off" type="email" required>
     </label>
 
     <label>
-        15.¿Cuál es el número celular de su contacto de emergencia?
+        19.¿Cuál es el número celular de su contacto de emergencia?
         <p class="title">Ejemplo: "2276565" o "3009002020"</p>
         <input class="select" placeholder="Telefono de emergencia" autocomplete="off" name="tel_emergencia" type="number" required>
     </label>
 
     <label>
-        16.Nombre de contacto de emergencia
+        20.Nombre de contacto de emergencia
         <input class="select" placeholder="Nombre de emergencia" autocomplete="off" name="nombre_emergencia" type="text" required>
     </label>
 
-    <label>17.¿Cuál es su EPS?</label>
+    <label>21.¿Cuál es su EPS?</label>
     <div class="radio-button-container">
         <div class="radio-button">
             <input type="radio" class="radio-button__input" id="radio13" name="eps" value="SURA" required>
@@ -239,7 +259,7 @@ $conn->close();
         </div>
     </div>
 
-    <label>18.¿Cuál es su fondo de pensiones?</label>
+    <label>22.¿Cuál es su fondo de pensiones?</label>
     <div class="radio-button-container">
         <div class="radio-button">
             <input type="radio" class="radio-button__input" id="radio18" name="pension" value="PORVENIR" required>
@@ -278,7 +298,7 @@ $conn->close();
         </div>
     </div>
 
-    <label>19.¿Cuál es su nacionalidad?</label>
+    <label>23.¿Cuál es su nacionalidad?</label>
     <div class="radio-button-container">
         <div class="radio-button">
             <input type="radio" class="radio-button__input" id="radio23" name="nacionalidad" value="COLOMBIANA" required>
@@ -311,7 +331,7 @@ $conn->close();
     </div>
 
     <label>
-        20.¿Cuál es el medio por el cuál se enteró de la oferta?
+        24.¿Cuál es el medio por el cuál se enteró de la oferta?
         <select name="medio" id="medio" class="select" required>
             <option value="">Selecciona una respuesta</option>
             <option value="FACEBOOK">FACEBOOK</option>
@@ -325,7 +345,7 @@ $conn->close();
     </label>
 
     <label>
-        21.Campaña
+        25.Campaña
         <select name="campaña" id="campaña" class="select" required>
             <option value="">Selecciona una Campaña</option>
             <?php
@@ -336,7 +356,7 @@ $conn->close();
         </select>
     </label>
 
-    <label>22.¿Horas de interés?</label>
+    <label>26.¿Horas de interés?</label>
     <div class="radio-button-container">
         <div class="radio-button">
             <input type="radio" class="radio-button__input" id="radio27" name="hora" value="4 HORAS" required>
@@ -361,7 +381,7 @@ $conn->close();
         </div>
     </div>
 
-    <label>23.¿Tiene experiencia en ventas?</label>
+    <label>27.¿Tiene experiencia en ventas?</label>
     <div class="radio-button-container">
         <div class="radio-button">
             <input type="radio" class="radio-button__input" id="radio30" name="expVenta" value="SI" required>
@@ -379,7 +399,7 @@ $conn->close();
         </div>
     </div>
 
-    <label>24.¿Tiene experiencia en call center?</label>
+    <label>28.¿Tiene experiencia en call center?</label>
     <div class="radio-button-container">
         <div class="radio-button">
             <input type="radio" class="radio-button__input" id="radio32" name="expCall" value="SI" required>
@@ -397,7 +417,7 @@ $conn->close();
         </div>
     </div>
 
-    <label>25.¿Cuáles son sus gastos mensuales?</label>
+    <label>29.¿Cuáles son sus gastos mensuales?</label>
     <div class="radio-button-container">
         <div class="radio-button">
             <input type="radio" class="radio-button__input" id="radio34" name="gastos" value="$0-500000" required>

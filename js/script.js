@@ -449,4 +449,33 @@ $(document).ready(function () {
             },
         });
     });
+
+    $(".wpp").on("click", function (e) {
+        e.preventDefault();
+
+        var telefonoValue = $(this).data('telefono');
+        var horaValue = $(this).data('hora');
+        var nombreValue = $(this).data('nombre');
+        var ciudadValue = $(this).data('ciudad');
+        var fechaValue = $(this).data('fecha');
+        var modalidadValue = $(this).data('modalidad');
+
+        if (ciudadValue == 'Medellín') {
+            var ubi = 'Cra. 52 #14-30 local 121';
+        } else if (ciudadValue == 'Bogotá') {
+            var ubi = 'Cra. 7 #17-51';
+        } else if (ciudadValue == 'Urabá') {
+            var ubi = 'Cra. 7 #17-51';
+        }
+
+        if (modalidadValue == 'Presencial') {
+            var mensaje = encodeURIComponent("¡Hola! " + nombreValue + " recuerda tu entrevista " + modalidadValue + " el día " + fechaValue + " a las " + horaValue + " en la ciudad de " + ciudadValue + " ubicación: " + ubi);
+        } else {
+            var mensaje = encodeURIComponent("¡Hola! " + nombreValue + " recuerda tu entrevista " + modalidadValue + " el día " + fechaValue + " a las " + horaValue);
+        }
+
+        var enlaceWhatsApp = "https://wa.me/57" + telefonoValue + "/?text=" + mensaje;
+        window.open(enlaceWhatsApp, '_blank');
+    });
 });
+;

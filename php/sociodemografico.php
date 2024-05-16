@@ -11,7 +11,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nombre = $_POST['nombre'];
     $genero = $_POST['genero'];
     $nacimiento = $_POST['nacimiento'];
+    $municipio_nac = $_POST['municipio_nac'];
+    $departamento_nac = $_POST['departamento_nac'];
     $expedicion = $_POST['expedicion'];
+    $municipio_exp = $_POST['municipio_exp'];
+    $departamento_exp = $_POST['departamento_exp'];
     $direccion = $_POST['direccion'];
     $municipio = $_POST['municipio'];
     $barrio = $_POST['barrio'];
@@ -42,9 +46,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $response['status'] = 'error';
         $response['message'] = "Ya Fuiste asisgnado a la campaña " . $campaña;
     } else {
-        $insertQuery = "INSERT INTO sociodemografico (estudio, nivel_academico, horario, tipo_documento, documento, nombre, genero, nacimiento, expedicion, direccion, municipio, barrio, telefono, correo, tel_emergencia, nombre_emergencia, eps, pension, nacionalidad, medio, campaña, hora_interes, expVenta, expCall, gastos, id_candidato) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $insertQuery = "INSERT INTO sociodemografico (estudio, nivel_academico, horario, tipo_documento, documento, nombre, genero, nacimiento, municipio_nac, departamento_nac, expedicion, municipio_exp, departamento_exp, direccion, municipio, barrio, telefono, correo, tel_emergencia, nombre_emergencia, eps, pension, nacionalidad, medio, campaña, hora_interes, expVenta, expCall, gastos, id_candidato) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $insertStmt = mysqli_prepare($conn, $insertQuery);
-        mysqli_stmt_bind_param($insertStmt, "ssssssssssssssssssssssssss", $estudio, $nivel_educativo, $horario, $tipo_documento, $documento, $nombre, $genero, $nacimiento, $expedicion, $direccion, $municipio, $barrio, $telefono, $correo, $tel_emergencia, $nombre_emergencia, $eps, $pension, $nacionalidad, $medio, $campaña, $hora, $expVenta, $expCall, $gastos, $id);
+        mysqli_stmt_bind_param($insertStmt, "ssssssssssssssssssssssssssssss", $estudio, $nivel_educativo, $horario, $tipo_documento, $documento, $nombre, $genero, $nacimiento, $municipio_nac, $departamento_nac, $expedicion, $municipio_exp, $departamento_exp, $direccion, $municipio, $barrio, $telefono, $correo, $tel_emergencia, $nombre_emergencia, $eps, $pension, $nacionalidad, $medio, $campaña, $hora, $expVenta, $expCall, $gastos, $id);
         $result = mysqli_stmt_execute($insertStmt);
         mysqli_stmt_close($insertStmt);
 
