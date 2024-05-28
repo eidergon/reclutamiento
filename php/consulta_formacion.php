@@ -2,7 +2,7 @@
 require_once 'conexion.php';
 $busqueda = $_GET['busqueda'];
 
-$sql = "SELECT * FROM formacion WHERE (codigo LIKE '%$busqueda%' OR formador LIKE '%$busqueda%') LIMIT 10";
+$sql = "SELECT * FROM formacion WHERE (codigo LIKE '%$busqueda%' OR formador LIKE '%$busqueda%') Order by id desc LIMIT 10";
 $result = $conn->query($sql);
 
 ?>

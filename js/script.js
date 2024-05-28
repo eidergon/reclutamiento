@@ -191,35 +191,33 @@ $(document).ready(function () {
 
     // crear formacion
     $("#ciudad").change(function () {
+        var busqueda = $(this).val();
+
+        $.ajax({
+            url: "../php/consulta_formadores.php",
+            type: "GET",
+            data: { busqueda: busqueda },
+            success: function (response) {
+                $("#formador").html(response);
+            },
+        });
+
         var ciudadSeleccionada = $(this).val();
         var campañaSelect = $("#campaña");
-        var formadorSelect = $("#formador");
 
         campañaSelect.empty().append("<option value=''>Campaña</option>");
-        formadorSelect.empty().append("<option value=''>Formador</option>");
 
         if (ciudadSeleccionada === "Bogota") {
             agregarOpcion(campañaSelect, "TYT");
             agregarOpcion(campañaSelect, "Dedicadas");
             agregarOpcion(campañaSelect, "Portabilidad");
-
-            agregarOpcion(formadorSelect, "Nicolle Gutiérrez");
-            agregarOpcion(formadorSelect, "MIGUEL ANGEL ARIZA");
-            agregarOpcion(formadorSelect, "DIEGO ARMANDO MENDOZA");
-            agregarOpcion(formadorSelect, "NICOL JOHANA GALINDO");
         } else if (ciudadSeleccionada === "Medellin") {
             agregarOpcion(campañaSelect, "Portabilidad");
             agregarOpcion(campañaSelect, "Migracion");
             agregarOpcion(campañaSelect, "Hogar");
-
-            agregarOpcion(formadorSelect, "Alexander Rodríguez");
-            agregarOpcion(formadorSelect, "Jhon Gómez");
-            agregarOpcion(formadorSelect, "Ferney Graciano");
         } else if (ciudadSeleccionada === "Uraba") {
             agregarOpcion(campañaSelect, "Hogar");
             agregarOpcion(campañaSelect, "Portabilidad");
-
-            agregarOpcion(formadorSelect, "Daniela Delgado");
         }
     });
 
@@ -450,7 +448,7 @@ $(document).ready(function () {
         });
     });
 
-    $(".wpp").on("click", function (e) {
+    $(document).on('click', '.wpp', function (e) {
         e.preventDefault();
 
         var telefonoValue = $(this).data('telefono');
